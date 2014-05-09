@@ -40,6 +40,7 @@ $commands = array(
     'require'  => array('cmd' => 'require', 'args' => 'pkgver', 'name' => 'Add package'),
     'search'   => array('cmd' => 'search', 'args' => 'pkg', 'name' => 'Search packages'),
     'validate' => array('cmd' => 'validate', 'args' => null, 'name' => 'Validate composer.json'),
+    'diagnose' => array('cmd' => 'diagnose', 'args' => null, 'name' => 'Diagnose composer issues'),
 );
 
 $basicgroup = array(
@@ -59,6 +60,7 @@ $utilgroup = array(
     'require',
     'search',
     'validate',
+    'diagnose',
 );
 
 /**
