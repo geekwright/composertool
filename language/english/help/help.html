@@ -1,0 +1,16 @@
+<h4>Description</h4>
+<p>
+    Composer is a PHP package dependency manager that XOOPS depends on. You can find out more about Composer from <a href="https://getcomposer.org/" target="_blank">getcomposer.org</a>.
+</p>
+<p>
+    Normally Composer is executed from a command line, but there are situations where this is not possible or desired. For these situations <em>Composer Tool</em> provides a simple interface for basic Composer tasks in the form of a XOOPS Extension.
+</p>
+<h4>Usage</h4>
+<p>
+    The <em>Composer Tool</em> is available in the XOOPS administration area. Select the Composer tab, and you will be presented with a list of common composer commands to select from. The most common are listed in the <em>Basics</em> section of the list. These commands are:
+    <ul>
+        <li><strong>Update</strong> - update packages as specified in composer.json</li>
+        <li><strong>Update composer.phar</strong> - get the latest version of Composer. This needs to be done periodically as Composer may issue errors if it is significantly out of date.</li>
+        <li><strong>Optimize autoloader</strong> - builds a highly optimized classmap for the autoloader. While this can speed up site performance, it can complicate development work. You should run this for a production system after each update.</li>
+    </ul>
+</p>

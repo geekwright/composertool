@@ -1,0 +1,9 @@
+{
+    "name": "geekwright/composertool",
+    "license": "GPL-2.0+",
+    "type": "xoops-module",
+    "description": "XOOPS extension to perform basic composer operations",
+    "require": {
+        "geekwright/module-installer-plugin": "~1.0"
+    }
+}
