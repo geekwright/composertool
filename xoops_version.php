@@ -17,7 +17,7 @@
 
 $modversion['dirname'] = basename(dirname(__FILE__));
 $modversion['name'] = _MI_COMPOSERTOOL_NAME;
-$modversion['version'] = '1.0';
+$modversion['version'] = '1.0.1';
 $modversion['description'] = _MI_COMPOSERTOOL_DESC;
 $modversion['author'] = 'Richard Griffith';
 $modversion['nickname'] = 'geekwright';
