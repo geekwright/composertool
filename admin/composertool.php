@@ -28,22 +28,25 @@ $modAdmin = new \Xoops\Module\Admin();
 $modAdmin->displayNavigation('composertool.php');
 
 $commands = array(
-    'selfupd'  => array('cmd' => 'selfupdate', 'args' => null, 'name' => 'Update composer.phar'),
-    'update'   => array('cmd' => 'update', 'args' => 'optpkg', 'name' => 'Update'),
+    'selfupd'  => array('cmd' => 'selfupdate', 'args' => null, 'name' => 'Update composer'),
+    'update'   => array('cmd' => '--no-progress update', 'args' => 'optpkg', 'name' => 'Update'),
     'autoload' => array('cmd' => 'dumpautoload --optimize', 'args' => null, 'name' => 'Optimize autoloader'),
     'showself' => array('cmd' => 'show --self', 'args' => null, 'name' => 'Show base package'),
     'showinst' => array('cmd' => 'show --installed', 'args' => null, 'name' => 'Show installed packages'),
-    'depends'  => array('cmd' => 'depends', 'args' => 'pkg', 'name' => 'Show package dependencies'),
+    'depends'  => array('cmd' => 'depends', 'args' => 'pkg', 'name' => 'What depends on package'),
     'showlic'  => array('cmd' => 'licenses', 'args' => null, 'name' => 'Show package licences'),
     'status'   => array('cmd' => 'status -v', 'args' => null, 'name' => 'Show modified packages'),
-    'version'  => array('cmd' => 'show --version', 'args' => null, 'name' => 'Show Version'),
+    'version'  => array('cmd' => 'show --version', 'args' => null, 'name' => 'Show version'),
     'require'  => array('cmd' => 'require', 'args' => 'pkgver', 'name' => 'Add package'),
     'search'   => array('cmd' => 'search', 'args' => 'pkg', 'name' => 'Search packages'),
     'validate' => array('cmd' => 'validate', 'args' => null, 'name' => 'Validate composer.json'),
     'diagnose' => array('cmd' => 'diagnose', 'args' => null, 'name' => 'Diagnose composer issues'),
+    'showupd'  => array('cmd' => '--dry-run update', 'args' => 'optpkg', 'name' => 'Check for updates'),
+    'platform' => array('cmd' => 'show --platform', 'args' => null, 'name' => 'Show platform packages'),
 );
 
 $basicgroup = array(
+    'showupd',
     'update',
     'autoload',
     'selfupd',
@@ -51,6 +54,7 @@ $basicgroup = array(
 $showgroup = array(
     'showself',
     'showinst',
+    'platform',
     'depends',
     'showlic',
     'status',
@@ -86,9 +90,11 @@ $utilOpt = getOptArray($utilgroup, $commands);
 
 $method = Request::getMethod();
 
-$form = new XoopsThemeForm('', 'composer', '', 'post', true, 'horizontal');
+$form = new XoopsThemeForm('', 'composer', 'composertool.php', 'post', true, 'horizontal');
 
-$select_optgroup = new XoopsFormSelect('Composer Command', 'composer_command', '', 1, false);
+$selected = Request::getCmd('composer_command', '');
+
+$select_optgroup = new XoopsFormSelect('Composer Command', 'composer_command', $selected, 1, false);
 $select_optgroup->addOptgroup('Basics', getOptArray($basicgroup, $commands));
 $select_optgroup->addOptgroup('Informational', getOptArray($showgroup, $commands));
 $select_optgroup->addOptgroup('Utility', getOptArray($utilgroup, $commands));
@@ -122,7 +128,7 @@ if ($method == 'POST') {
     if ($secResult) {
         $composer = new ComposerUtility();
 
-        $composer_command = empty($_POST['composer_command']) ? '' : $_POST['composer_command'];
+        $composer_command = Request::getCmd('composer_command', '', 'POST');
 
         $cmd = empty($commands[$composer_command])
             ? array('cmd' => '', 'args' => null, 'name' => 'Dummy')
