@@ -84,6 +84,14 @@ function getOptArray($keys, $commands)
     return $optArray;
 }
 
+echo <<<EOT
+<script>
+setTimeout(function () {
+   window.location.href = "index.php";
+}, 900000); //will redirect after 900 secs - security token expires
+</script>
+EOT;
+
 $basicOpt = getOptArray($basicgroup, $commands);
 $showOpt = getOptArray($showgroup, $commands);
 $utilOpt = getOptArray($utilgroup, $commands);
