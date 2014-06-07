@@ -30,9 +30,15 @@ $adminmenu[] = array(
     'link'  => 'admin/about.php' ,
     'icon'  => 'about.png'
 );
-// SchemaTool
+// ComposerTool
 $adminmenu[] = array(
     'title' => _MI_COMPOSERTOOL_ADMIN_TOOL ,
     'link'  => 'admin/composertool.php' ,
     'icon'  => 'administration.png'
+);
+// ComposerTool
+$adminmenu[] = array(
+    'title' => _MI_COMPOSERTOOL_ADMIN_SECURITY ,
+    'link'  => 'admin/security.php' ,
+    'icon'  => 'security.png'
 );
