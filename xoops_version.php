@@ -17,7 +17,7 @@
 
 $modversion['dirname'] = basename(dirname(__FILE__));
 $modversion['name'] = _MI_COMPOSERTOOL_NAME;
-$modversion['version'] = '1.0.2';
+$modversion['version'] = '1.0.3';
 $modversion['description'] = _MI_COMPOSERTOOL_DESC;
 $modversion['author'] = 'Richard Griffith';
 $modversion['nickname'] = 'geekwright';
@@ -29,9 +29,9 @@ $modversion['official'] = 0;
 $modversion['image'] = 'icons/logo.png';
 
 // About stuff
-$modversion['module_status'] = 'Alpha';
-$modversion['status'] = 'Alpha';
-$modversion['release_date'] = '2014/05/08';
+$modversion['module_status'] = 'Final';
+$modversion['status'] = 'Final';
+$modversion['release_date'] = '2014/06/07';
 
 $modversion['developer_lead'] = 'geekwright';
 $modversion['developer_website_url'] = 'http://xoops.org';
