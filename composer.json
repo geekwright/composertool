@@ -4,7 +4,7 @@
     "type": "xoops-module",
     "description": "XOOPS extension to perform basic composer operations",
     "require": {
-        "geekwright/module-installer-plugin": "~1.0",
+        "xoops/module-installer-plugin": "~1.0",
         "sensiolabs/security-checker": "~1.3"
     }
 }
