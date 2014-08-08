@@ -98,11 +98,11 @@ $utilOpt = getOptArray($utilgroup, $commands);
 
 $method = Request::getMethod();
 
-$form = new XoopsThemeForm('', 'composer', 'composertool.php', 'post', true, 'horizontal');
+$form = new Xoops\Form\ThemeForm('', 'composer', 'composertool.php', 'post', true, 'horizontal');
 
 $selected = Request::getCmd('composer_command', '');
 
-$select_optgroup = new XoopsFormSelect('Composer Command', 'composer_command', $selected, 1, false);
+$select_optgroup = new Xoops\Form\Select('Composer Command', 'composer_command', $selected, 1, false);
 $select_optgroup->addOptgroup('Basics', getOptArray($basicgroup, $commands));
 $select_optgroup->addOptgroup('Informational', getOptArray($showgroup, $commands));
 $select_optgroup->addOptgroup('Utility', getOptArray($utilgroup, $commands));
@@ -110,15 +110,15 @@ $select_optgroup->addOptgroup('Utility', getOptArray($utilgroup, $commands));
 $select_optgroup->setClass('span3');
 $form->addElement($select_optgroup, true);
 
-$testtray = new XoopsFormElementTray('Package');
+$testtray = new Xoops\Form\ElementTray('Package');
 
-$pkg = new XoopsFormText('', 'package', 3, 128, '', 'vendor/package');
+$pkg = new Xoops\Form\Text('', 'package', 3, 128, '', 'vendor/package');
 $pkg->setDescription('Description code');
 //$pkg->setPattern('^.{3,}$', 'You need at least 3 characters');
 //$pkg->setDatalist(array('list 1','list 2','list 3'));
 $testtray ->addElement($pkg);
 
-$ver = new XoopsFormText('Version', 'version', 1, 50, '', 'version');
+$ver = new Xoops\Form\Text('Version', 'version', 1, 50, '', 'version');
 $ver->setDescription('Description code');
 //$ver->setPattern('^.{3,}$', 'You need at least 3 characters');
 //$ver->setDatalist(array('list 1','list 2','list 3'));
@@ -126,7 +126,7 @@ $testtray ->addElement($ver);
 
 $form->addElement($testtray);
 
-$button = new XoopsFormButton('', 'submit', XoopsLocale::A_SUBMIT, 'submit');
+$button = new Xoops\Form\Button('', 'submit', XoopsLocale::A_SUBMIT, 'submit');
 $form->addElement($button);
 
 $form->display();

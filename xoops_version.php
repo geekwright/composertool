@@ -15,7 +15,7 @@
  * @author          Richard Griffith <richard@geekwright.com>
  */
 
-$modversion['dirname'] = basename(dirname(__FILE__));
+$modversion['dirname'] = basename(__DIR__);
 $modversion['name'] = _MI_COMPOSERTOOL_NAME;
 $modversion['version'] = '1.0.3';
 $modversion['description'] = _MI_COMPOSERTOOL_DESC;
