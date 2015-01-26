@@ -9,6 +9,8 @@
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  */
 
+use \Xoops\Core\FilterInput;
+
 /**
  * @copyright       The XOOPS Project http://sourceforge.net/projects/xoops/
  * @license         GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
@@ -23,12 +25,27 @@ $indexAdmin->displayNavigation('security.php');
 $checker = new \SensioLabs\Security\SecurityChecker();
 try {
     $alerts = $checker->check(XOOPS_PATH . '/composer.lock', 'text');
+    \Kint::dump($alerts, $checker);
     $alertCount = $checker->getLastVulnerabilityCount();
+    if ($alertCount==0) {
+        echo $xoops->alert('info', 'No issues detected', 'Security Advisories Checker');
+    } else {
+        foreach ($alerts as $package => $alert) {
+            $body = "Version: {$alert['version']}<br><br>";
+            foreach ($alert['advisories'] as $adv) {
+                $title = FilterInput::clean($adv['title']);
+                $cve = FilterInput::clean($adv['cve']);
+                $link = FilterInput::clean($adv['link']);
+                $body .= "{$title}<br>"
+                        . (empty($cve) ? '' : "CVE: {$cve}<br>")
+                        . "<a href=\"{$link}\" rel=\"external\">{$link}</a><br><br>";
+            }
+            echo $xoops->alert('error', $body, $package);
+        }
+    }
 } catch (\Exception $e) {
     $xoops->events()->triggerEvent('core.exception', $e);
-    $alerts = 'SensioLabs Security Advisories Checker failed to complete.';
-    $alertCount = 1;
+    echo $xoops->alert('error', 'SensioLabs Security Advisories Checker failed to complete.');
 }
-echo $xoops->alert($alertCount==0?'info':'error', '<div style="white-space:pre;">'.$alerts.'</div>', 'Security Advisories Checker');
 
 $xoops->footer();
