@@ -34,7 +34,7 @@ $commands = array(
     'showself' => array('cmd' => 'show --self', 'args' => null, 'name' => 'Show base package'),
     'showinst' => array('cmd' => 'show --installed', 'args' => null, 'name' => 'Show installed packages'),
     'depends'  => array('cmd' => 'depends', 'args' => 'pkg', 'name' => 'What depends on package'),
-    'showlic'  => array('cmd' => 'licenses', 'args' => null, 'name' => 'Show package licences'),
+    'showlic'  => array('cmd' => 'licenses', 'args' => null, 'name' => 'Show package licenses'),
     'status'   => array('cmd' => 'status -v', 'args' => null, 'name' => 'Show modified packages'),
     'version'  => array('cmd' => 'show --version', 'args' => null, 'name' => 'Show version'),
     'require'  => array('cmd' => 'require', 'args' => 'pkgver', 'name' => 'Add package'),
