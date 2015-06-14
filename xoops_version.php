@@ -10,9 +10,9 @@
  */
 
 /**
- * @copyright       The XOOPS Project http://sourceforge.net/projects/xoops/
- * @license         GNU GPL 2 or later (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html)
- * @author          Richard Griffith <richard@geekwright.com>
+ * @copyright 2015 XOOPS Project (http://xoops.org)
+ * @license   GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @author    Richard Griffith <richard@geekwright.com>
  */
 
 $modversion['dirname'] = basename(__DIR__);
@@ -24,7 +24,7 @@ $modversion['nickname'] = 'geekwright';
 $modversion['credits'] = 'The XOOPS Project';
 $modversion['help'] = 'page=help';
 $modversion['license'] = "GNU GPL 2 or later";
-$modversion['license_url'] = 'http://www.gnu.org/licenses/old-licenses/gpl-2.0.html';
+$modversion['license_url'] = 'http://www.gnu.org/licenses/gpl-2.0.html';
 $modversion['official'] = 0;
 $modversion['image'] = 'icons/logo.png';
 
