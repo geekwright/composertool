@@ -103,9 +103,9 @@ $form = new Xoops\Form\ThemeForm('', 'composer', 'composertool.php', 'post', tru
 $selected = Request::getCmd('composer_command', '');
 
 $select_optgroup = new Xoops\Form\Select('Composer Command', 'composer_command', $selected, 1, false);
-$select_optgroup->addOptgroup('Basics', getOptArray($basicgroup, $commands));
-$select_optgroup->addOptgroup('Informational', getOptArray($showgroup, $commands));
-$select_optgroup->addOptgroup('Utility', getOptArray($utilgroup, $commands));
+$select_optgroup->addOptionGroup('Basics', getOptArray($basicgroup, $commands));
+$select_optgroup->addOptionGroup('Informational', getOptArray($showgroup, $commands));
+$select_optgroup->addOptionGroup('Utility', getOptArray($utilgroup, $commands));
 //$select_optgroup->setDescription('Description Select Optgroup');
 $select_optgroup->setClass('span3');
 $form->addElement($select_optgroup, true);
