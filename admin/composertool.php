@@ -13,7 +13,7 @@ use Xmf\Request;
 use Xoops\Core\ComposerUtility;
 
 /**
- * @copyright 2015 XOOPS Project (http://xoops.org)
+ * @copyright 2015-2016 XOOPS Project (http://xoops.org)
  * @license   GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
  * @author    Richard Griffith <richard@geekwright.com>
  */
@@ -28,11 +28,12 @@ $modAdmin = new \Xoops\Module\Admin();
 $modAdmin->displayNavigation('composertool.php');
 
 $commands = array(
-    'selfupd'  => array('cmd' => 'selfupdate', 'args' => null, 'name' => 'Update composer'),
+    'selfupd'  => array('cmd' => 'selfupdate', 'args' => null, 'name' => 'Self update composer'),
     'update'   => array('cmd' => '--no-progress update', 'args' => 'optpkg', 'name' => 'Update'),
     'autoload' => array('cmd' => 'dumpautoload --optimize', 'args' => null, 'name' => 'Optimize autoloader'),
     'showself' => array('cmd' => 'show --self', 'args' => null, 'name' => 'Show base package'),
     'showinst' => array('cmd' => 'show --installed', 'args' => null, 'name' => 'Show installed packages'),
+    'showinsd' => array('cmd' => 'show -i -t', 'args' => null, 'name' => 'Show installed with dependencies'),
     'depends'  => array('cmd' => 'depends', 'args' => 'pkg', 'name' => 'What depends on package'),
     'showlic'  => array('cmd' => 'licenses', 'args' => null, 'name' => 'Show package licenses'),
     'status'   => array('cmd' => 'status -v', 'args' => null, 'name' => 'Show modified packages'),
@@ -54,6 +55,7 @@ $basicgroup = array(
 $showgroup = array(
     'showself',
     'showinst',
+    'showinsd',
     'platform',
     'depends',
     'showlic',
