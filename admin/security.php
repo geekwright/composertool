@@ -9,10 +9,10 @@
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  */
 
-use \Xoops\Core\FilterInput;
+use Xmf\FilterInput;
 
 /**
- * @copyright 2015 XOOPS Project (http://xoops.org)
+ * @copyright 2015-2016 XOOPS Project (http://xoops.org)
  * @license   GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
  * @author    Richard Griffith <richard@geekwright.com>
  */

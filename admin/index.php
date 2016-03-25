@@ -25,7 +25,7 @@ $indexAdmin->addConfigBoxLine(
     ($max_time < 120) ? 'warning' : 'accept'
 
 );
-//Admin::checkModuleVersion('xmf', 100);
+
 $indexAdmin->displayIndex();
 
 $xoops->footer();

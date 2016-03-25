@@ -10,14 +10,14 @@
  */
 
 /**
- * @copyright 2015 XOOPS Project (http://xoops.org)
+ * @copyright 2015-2016 XOOPS Project (http://xoops.org)
  * @license   GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
  * @author    Richard Griffith <richard@geekwright.com>
  */
 
 $modversion['dirname'] = basename(__DIR__);
 $modversion['name'] = _MI_COMPOSERTOOL_NAME;
-$modversion['version'] = '1.0.9';
+$modversion['version'] = '1.0.10';
 $modversion['description'] = _MI_COMPOSERTOOL_DESC;
 $modversion['author'] = 'Richard Griffith';
 $modversion['nickname'] = 'geekwright';
@@ -31,7 +31,7 @@ $modversion['image'] = 'icons/logo.png';
 // About stuff
 $modversion['module_status'] = 'Final';
 $modversion['status'] = 'Final';
-$modversion['release_date'] = '2016/01/21';
+$modversion['release_date'] = '2016/03/24';
 
 $modversion['developer_lead'] = 'geekwright';
 $modversion['developer_website_url'] = 'http://xoops.org';
@@ -41,7 +41,7 @@ $modversion['developer_email'] = 'richard@geekwright.com';
 $modversion['people']['developers'][] = 'Richard Griffith';
 
 $modversion['min_xoops'] = '2.6.0';
-$modversion['min_php'] = '5.3.7';
+$modversion['min_php'] = '5.5.0';
 
 // Menu
 $modversion['hasMain'] = 0;
