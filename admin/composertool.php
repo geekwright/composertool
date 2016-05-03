@@ -112,16 +112,16 @@ $select_optgroup->addOptionGroup('Utility', getOptArray($utilgroup, $commands));
 $select_optgroup->setClass('span3');
 $form->addElement($select_optgroup, true);
 
-$testtray = new Xoops\Form\ElementTray('Package');
+$testtray = new Xoops\Form\ElementTray('');
 
-$pkg = new Xoops\Form\Text('', 'package', 3, 128, '', 'vendor/package');
-$pkg->setDescription('Description code');
+$pkg = new Xoops\Form\Text('Package', 'package', 32, 128, '', 'vendor/package');
+//$pkg->setDescription('Description code');
 //$pkg->setPattern('^.{3,}$', 'You need at least 3 characters');
 //$pkg->setDatalist(array('list 1','list 2','list 3'));
 $testtray ->addElement($pkg);
 
-$ver = new Xoops\Form\Text('Version', 'version', 1, 50, '', 'version');
-$ver->setDescription('Description code');
+$ver = new Xoops\Form\Text('Version', 'version', 16, 50, '', 'version');
+//$ver->setDescription('Description code');
 //$ver->setPattern('^.{3,}$', 'You need at least 3 characters');
 //$ver->setDatalist(array('list 1','list 2','list 3'));
 $testtray ->addElement($ver);
