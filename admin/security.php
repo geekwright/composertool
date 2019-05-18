@@ -24,8 +24,9 @@ $indexAdmin->displayNavigation('security.php');
 
 $checker = new \SensioLabs\Security\SecurityChecker();
 try {
-    $alerts = $checker->check(XOOPS_PATH . '/composer.lock', 'text');
-    $alertCount = $checker->getLastVulnerabilityCount();
+    $result = $checker->check(XOOPS_PATH . '/../composer.lock', 'json');
+    $alerts = json_decode((string) $result, true);
+    $alertCount = count($alerts);
     if ($alertCount==0) {
         echo $xoops->alert('info', 'No issues detected', 'Security Advisories Checker');
     } else {
