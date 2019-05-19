@@ -58,12 +58,10 @@ class ComposerUtility
         $composerjson = '/composer.json';
 
         $path = \ComposerLocator::getRootPath();
-        \Xmf\Debug::log($path);
         if (file_exists($path . $composerjson)) {
             return $path;
         }
         $path = dirname($path);
-        \Xmf\Debug::log($path);
         if (file_exists($path . $composerjson)) {
             return $path;
         }
