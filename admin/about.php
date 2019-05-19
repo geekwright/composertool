@@ -10,16 +10,16 @@
  */
 
 /**
- * @copyright 2015-2016 XOOPS Project (http://xoops.org)
- * @license   GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @copyright 2015-2019 XOOPS Project (https://xoops.org)
+ * @license   GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  * @author    Richard Griffith <richard@geekwright.com>
  */
 
 require __DIR__ . '/admin_header.php';
 
-$aboutAdmin = new \Xoops\Module\Admin();
+$admin = new \Xoops\Module\Admin();
 
-$aboutAdmin->displayNavigation('about.php');
-$aboutAdmin->displayAbout(true);
+$admin->displayNavigation('about.php');
+$admin->displayAbout(true);
 
 $xoops->footer();

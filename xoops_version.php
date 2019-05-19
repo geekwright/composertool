@@ -10,38 +10,39 @@
  */
 
 /**
- * @copyright 2015-2016 XOOPS Project (http://xoops.org)
- * @license   GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @copyright 2015-2019 XOOPS Project (https://xoops.org)
+ * @license   GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  * @author    Richard Griffith <richard@geekwright.com>
  */
 
 $modversion['dirname'] = basename(__DIR__);
 $modversion['name'] = _MI_COMPOSERTOOL_NAME;
-$modversion['version'] = '1.0.10';
+$modversion['version'] = '1.1.0';
 $modversion['description'] = _MI_COMPOSERTOOL_DESC;
 $modversion['author'] = 'Richard Griffith';
 $modversion['nickname'] = 'geekwright';
 $modversion['credits'] = 'The XOOPS Project';
 $modversion['help'] = 'page=help';
 $modversion['license'] = "GNU GPL 2 or later";
-$modversion['license_url'] = 'http://www.gnu.org/licenses/gpl-2.0.html';
+$modversion['license_url'] = 'https://www.gnu.org/licenses/gpl-2.0.html';
 $modversion['official'] = 0;
 $modversion['image'] = 'icons/logo.png';
+$modversion['namespace'] = 'Geekwright\ComposerTool';
 
 // About stuff
 $modversion['module_status'] = 'Final';
 $modversion['status'] = 'Final';
-$modversion['release_date'] = '2016/03/24';
+$modversion['release_date'] = '2019/05/19';
 
 $modversion['developer_lead'] = 'geekwright';
-$modversion['developer_website_url'] = 'http://xoops.org';
+$modversion['developer_website_url'] = 'https://xoops.org';
 $modversion['developer_website_name'] = 'Xoops';
 $modversion['developer_email'] = 'richard@geekwright.com';
 
 $modversion['people']['developers'][] = 'Richard Griffith';
 
 $modversion['min_xoops'] = '2.6.0';
-$modversion['min_php'] = '5.5.0';
+$modversion['min_php'] = '7.1.0';
 
 // Menu
 $modversion['hasMain'] = 0;
@@ -63,3 +64,14 @@ $modversion['paypal'] = array(
     'amount'        => 0,
     'currency_code' => 'USD',
 );
+
+$modversion['config'] = [];
+
+$modversion['config'][] = [
+    'name'        => 'composer_json_path',
+    'title'       => _MI_COMPOSERTOOL_CFG_JSON_TITLE,
+    'description' => _MI_COMPOSERTOOL_CFG_JSON_DESC,
+    'formtype'    => 'textbox',
+    'valuetype'   => 'text',
+    'default'     => '',
+];

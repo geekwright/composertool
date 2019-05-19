@@ -9,12 +9,14 @@
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  */
 
+use Geekwright\ComposerTool\ComposerUtility;
 use Xmf\Request;
-use Xoops\Core\ComposerUtility;
+use Xmf\Module\Helper;
+use Xoops\Module\Admin;
 
 /**
- * @copyright 2015-2016 XOOPS Project (http://xoops.org)
- * @license   GNU GPL 2 or later (http://www.gnu.org/licenses/gpl-2.0.html)
+ * @copyright 2015-2019 XOOPS Project (https://xoops.org)
+ * @license   GNU GPL 2 or later (https://www.gnu.org/licenses/gpl-2.0.html)
  * @author    Richard Griffith <richard@geekwright.com>
  */
 
@@ -24,8 +26,11 @@ $xoops = Xoops::getInstance();
 $xoops->header();
 $security = $xoops->security();
 
-$modAdmin = new \Xoops\Module\Admin();
+$modAdmin = new Admin();
 $modAdmin->displayNavigation('composertool.php');
+
+$dir = basename(dirname(__DIR__));
+$helper = Helper::getHelper($dir);
 
 $commands = array(
     'selfupd'  => array('cmd' => 'selfupdate', 'args' => null, 'name' => 'Self update composer'),
@@ -136,7 +141,8 @@ $form->display();
 if ($method == 'POST') {
     $secResult = $security->check();
     if ($secResult) {
-        $composer = new ComposerUtility();
+        $jsonPath = $helper->getConfig('composer_json_path', '');
+        $composer = new ComposerUtility($jsonPath);
 
         $composer_command = Request::getCmd('composer_command', '', 'POST');
 
