@@ -3,4 +3,5 @@
 \#*
 *.bak
 .idea/
+coverage.clover
 vendor/
