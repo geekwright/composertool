@@ -1,6 +1,7 @@
 <?php
 spl_autoload_register(function ($class) {
     $projectRoot = dirname(dirname(__DIR__)) . '/';
+    include $projectRoot . 'language/english/modinfo.php';
     require  $projectRoot . 'xoops_version.php';
     $prefix = $modversion['namespace'] . '\\';
     $base_dir = $projectRoot . 'src/';
