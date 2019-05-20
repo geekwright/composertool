@@ -69,6 +69,14 @@ class ComposerUtility
     }
 
     /**
+     * @return string path to composer.json
+     */
+    public function getComposerJsonPath()
+    {
+        return $this->findComposerJson();
+    }
+
+    /**
      * composerExecute - execute a command using composer
      *
      * @param string $command_line command to pass to composer, i.e. 'update'
@@ -121,7 +129,7 @@ class ComposerUtility
             //        }
             //    }
             //);
-        } catch (\Exception $e) {
+        } catch (\Throwable $e) {
             $this->errors[] = $e->getMessage();
         }
 

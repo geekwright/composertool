@@ -32,32 +32,33 @@ $modAdmin->displayNavigation('composertool.php');
 $dir = basename(dirname(__DIR__));
 $helper = Helper::getHelper($dir);
 
-$commands = array(
-    'selfupd'  => array('cmd' => 'selfupdate', 'args' => null, 'name' => 'Self update composer'),
-    'update'   => array('cmd' => '--no-progress update', 'args' => 'optpkg', 'name' => 'Update'),
-    'autoload' => array('cmd' => 'dumpautoload --optimize', 'args' => null, 'name' => 'Optimize autoloader'),
-    'showself' => array('cmd' => 'show --self', 'args' => null, 'name' => 'Show base package'),
-    'showinst' => array('cmd' => 'show', 'args' => null, 'name' => 'Show installed packages'),
-    'showinsd' => array('cmd' => 'show -t', 'args' => null, 'name' => 'Show installed with dependencies'),
-    'depends'  => array('cmd' => 'depends', 'args' => 'pkg', 'name' => 'What depends on package'),
-    'showlic'  => array('cmd' => 'licenses', 'args' => null, 'name' => 'Show package licenses'),
-    'status'   => array('cmd' => 'status -v', 'args' => null, 'name' => 'Show modified packages'),
-    'version'  => array('cmd' => 'show --version', 'args' => null, 'name' => 'Show version'),
-    'require'  => array('cmd' => 'require', 'args' => 'pkgver', 'name' => 'Add package'),
-    'search'   => array('cmd' => 'search', 'args' => 'pkg', 'name' => 'Search packages'),
-    'validate' => array('cmd' => 'validate', 'args' => null, 'name' => 'Validate composer.json'),
-    'diagnose' => array('cmd' => 'diagnose', 'args' => null, 'name' => 'Diagnose composer issues'),
-    'showupd'  => array('cmd' => '--dry-run update', 'args' => 'optpkg', 'name' => 'Check for updates'),
-    'platform' => array('cmd' => 'show --platform', 'args' => null, 'name' => 'Show platform packages'),
-);
+$commands = [
+    'selfupd'  => ['cmd' => 'selfupdate', 'args' => null, 'name' => 'Self update composer'],
+    'update'   => ['cmd' => '--no-progress update', 'args' => 'optpkg', 'name' => 'Update'],
+    'autoload' => ['cmd' => 'dumpautoload --optimize', 'args' => null, 'name' => 'Optimize autoloader'],
+    'showself' => ['cmd' => 'show --self', 'args' => null, 'name' => 'Show base package'],
+    'showinst' => ['cmd' => 'show', 'args' => null, 'name' => 'Show installed packages'],
+    'showinsd' => ['cmd' => 'show -t', 'args' => null, 'name' => 'Show installed with dependencies'],
+    'depends'  => ['cmd' => 'depends', 'args' => 'pkg', 'name' => 'What depends on package'],
+    'showlic'  => ['cmd' => 'licenses', 'args' => null, 'name' => 'Show package licenses'],
+    'status'   => ['cmd' => 'status -v', 'args' => null, 'name' => 'Show modified packages'],
+    'version'  => ['cmd' => 'show --version', 'args' => null, 'name' => 'Show version'],
+    'require'  => ['cmd' => 'require', 'args' => 'pkgver', 'name' => 'Add package'],
+    'remove'   => ['cmd' => 'remove', 'args' => 'pkg', 'name' => 'Remove package'],
+    'search'   => ['cmd' => 'search', 'args' => 'pkg', 'name' => 'Search packages'],
+    'validate' => ['cmd' => 'validate', 'args' => null, 'name' => 'Validate composer.json'],
+    'diagnose' => ['cmd' => 'diagnose', 'args' => null, 'name' => 'Diagnose composer issues'],
+    'showupd'  => ['cmd' => '--dry-run update', 'args' => 'optpkg', 'name' => 'Check for updates'],
+    'platform' => ['cmd' => 'show --platform', 'args' => null, 'name' => 'Show platform packages'],
+];
 
-$basicgroup = array(
+$basicgroup = [
     'showupd',
     'update',
     'autoload',
     'selfupd',
-);
-$showgroup = array(
+];
+$showgroup = [
     'showself',
     'showinst',
     'showinsd',
@@ -66,13 +67,14 @@ $showgroup = array(
     'showlic',
     'status',
     'version',
-);
-$utilgroup = array(
+];
+$utilgroup = [
     'require',
+    'remove',
     'search',
     'validate',
     'diagnose',
-);
+];
 
 /**
  * getOptArray - build option arrays from command list given list of keys to include

@@ -9,7 +9,9 @@
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
  */
 
+use Xoops\Module\Admin;
 use Xmf\FilterInput;
+use Geekwright\ComposerTool\ComposerUtility;
 
 /**
  * @copyright 2015-2019 XOOPS Project (https://xoops.org)
@@ -19,12 +21,14 @@ use Xmf\FilterInput;
 
 require __DIR__ . '/admin_header.php';
 
-$indexAdmin = new \Xoops\Module\Admin();
-$indexAdmin->displayNavigation('security.php');
+$admin = new Admin();
+$admin->displayNavigation('security.php');
 
 $checker = new \SensioLabs\Security\SecurityChecker();
+$composerUtility = new ComposerUtility();
+$lockFile = $composerUtility->getComposerJsonPath() . '/composer.lock';
 try {
-    $result = $checker->check(XOOPS_PATH . '/../composer.lock', 'json');
+    $result = $checker->check($lockFile, 'json');
     $alerts = json_decode((string) $result, true);
     $alertCount = count($alerts);
     if ($alertCount==0) {
@@ -43,7 +47,7 @@ try {
             echo $xoops->alert('error', $body, $package);
         }
     }
-} catch (\Exception $e) {
+} catch (\Throwable $e) {
     $xoops->events()->triggerEvent('core.exception', $e);
     echo $xoops->alert('error', 'SensioLabs Security Advisories Checker failed to complete.');
 }
