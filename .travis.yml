@@ -19,7 +19,7 @@ install:
   - composer install
 
 script:
-  - xoops_lib/vendor/bin/phpunit
+  - vendor/bin/phpunit
 
 after_script:
   - if [ "$TRAVIS_PHP_VERSION" != "7.4snapshot" ] && [ "$TRAVIS_PHP_VERSION" != "nightly" ]; then wget https://scrutinizer-ci.com/ocular.phar; fi

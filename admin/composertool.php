@@ -181,7 +181,7 @@ if ($method == 'POST') {
                 break;
         }
 
-        if (false == $skipProcess) {
+        if (false === $skipProcess) {
             $command = '';
             $command .= empty($cmd['cmd']) ? '' : $cmd['cmd'];
             $command .= empty($args) ? '' : ' ' . $args;

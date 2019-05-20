@@ -1,5 +1,4 @@
 <?php
-require_once(__DIR__.'/../../../init_new.php');
 
 use Geekwright\ComposerTool\ComposerUtility;
 
@@ -16,7 +15,7 @@ class ComposerUtilityTest extends \PHPUnit\Framework\TestCase
      */
     protected function setUp()
     {
-        $this->object = new ComposerUtility;
+        $this->object = new ComposerUtility();
     }
 
     /**
@@ -25,6 +24,12 @@ class ComposerUtilityTest extends \PHPUnit\Framework\TestCase
      */
     protected function tearDown()
     {
+    }
+
+    public function testGetComposerJsonPath()
+    {
+        $path = $this->object->getComposerJsonPath();
+        $this->assertFileExists($path . '/composer.json');
     }
 
     public function testComposerExecute()
@@ -37,25 +42,28 @@ class ComposerUtilityTest extends \PHPUnit\Framework\TestCase
 
     public function testGetLastOutput()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+        $output = $this->object->getLastOutput();
+        $this->assertIsArray($output);
+        $this->assertEmpty($output);
     }
 
     public function testGetLastError()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+        $output = $this->object->getLastError();
+        $this->assertIsArray($output);
+        $this->assertEmpty($output);
     }
 
     public function testSetComposerExe()
     {
-        // Remove the following lines when you implement this test.
-        $this->markTestIncomplete(
-          'This test has not been implemented yet.'
-        );
+        $object = new class() extends ComposerUtility {
+            public function getExe()
+            {
+                return $this->exe;
+            }
+        };
+        $myexe = 'mycomposercmd';
+        $object->setComposerExe($myexe);
+        $this->assertEquals($myexe, $object->getExe());
     }
 }

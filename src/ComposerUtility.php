@@ -29,12 +29,12 @@ use Symfony\Component\Process\PhpProcess;
  */
 class ComposerUtility
 {
-    private $output = array();
-    private $exe = null;
-    private $exeOptions = ' --no-ansi --no-interaction ';
-    private $errors = array();
+    protected $output = array();
+    protected $exe = null;
+    protected $exeOptions = ' --no-ansi --no-interaction ';
+    protected $errors = array();
 
-    private $composerJsonPath;
+    protected $composerJsonPath;
 
     /**
      * __construct
@@ -107,11 +107,9 @@ class ComposerUtility
             return false;
         }
 
-        set_time_limit(300); // don't want this script to timeout;
+        set_time_limit(300);
         $command = $this->exe . $options . $command_line;
-        //putenv('COMPOSER_HOME=' . \XoopsBaseConfig::get('var-path').'/composer');
         $process = new Process($command);
-        //$process->setEnv(array('COMPOSER_HOME' => \XoopsBaseConfig::get('var-path').'/composer'));
         $process->setTimeout(120);
         $process->start();
         try {
@@ -131,6 +129,7 @@ class ComposerUtility
             //);
         } catch (\Throwable $e) {
             $this->errors[] = $e->getMessage();
+            array_unshift($this->output, $process->getErrorOutput());
         }
 
         if ($process->isSuccessful()) {
